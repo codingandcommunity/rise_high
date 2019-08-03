@@ -90,9 +90,14 @@ while True:
     scoreboard.write_score(score)
 
     # Check for head collisions with body segments
-    if any(snake.head_distance_from(segment) < 20 for segment in body):
+    collision = False
+    for i in range(len(body)):
+        if snake.head_distance_from(body[i]) < 20:
+            collision = True
+    
+    if collision:
         lose()
-        break
+        break # Exit the loop, ending game
     
     
     game.update()

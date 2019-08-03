@@ -33,6 +33,7 @@ Do so with snake.set_direction(dir) where dir is a String and one of:
 '''
 
 # TODO write functions to set movement direction
+# Replace 'pass' with a call to snake.set_direction
 def go_left():
     pass
 
@@ -126,6 +127,13 @@ while True:
         TODO Step 7: Check for the head colliding with body segments.
         Lose game if collision occurs.
     '''     
+    collision = False
+
+    # More code here
+
+    if collision:
+        lose()
+        break # Exit the loop, ending the game
     
     game.update() # Go to next game tick
     time.sleep(game.delay)
