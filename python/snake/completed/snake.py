@@ -16,9 +16,9 @@ import random  # For placing fruits
 from snake_game import Game, Snake, Food, Scoreboard
 
 # Initialize helper objects
-game = Game(600, 600, wn_color='grey', delay=0.1)
-snake = Snake(game)
-food = Food(game)
+game = Game(600, 600, wn_color='black', delay=0.1)
+snake = Snake(game, color="white")
+food = Food(game, color="white")
 scoreboard = Scoreboard(game)
 
 # Counter for tracking the player's score
@@ -51,6 +51,7 @@ game.set_control('d', go_right)
 # Write a You Lose! message
 def lose():
     snake.set_direction("stop")
+    turtle.color("white")
     turtle.write("You Lose!", align="center", font=("Arial", 16, "normal"))
     time.sleep(game.delay * 10)
 
