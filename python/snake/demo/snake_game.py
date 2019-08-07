@@ -174,9 +174,9 @@ class Scoreboard(object):
         self.pen.penup()
         self.pen.goto(0, self.game.wn_height / 2 - 40)
     
-    def write_score(self, scr):
+    def write_score(self, scr, highscr):
         ''' Write score on screen. Called every game tick. '''
         self.pen.clear() # Remove previous score
-        self.pen.write("Score: {}".format(scr), 
+        self.pen.write("Score: {}  High Score: {}".format(scr, highscr), 
                        align="center", 
                        font=(self.font, self.fntsize, self.fntstyle))

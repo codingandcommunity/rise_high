@@ -15,9 +15,10 @@ import time # For delay
 import random  # For placing fruits
 from snake_game import Game, Snake, Food, Scoreboard
 
-# Image locations on disk
+# Resource locations on disk
 jungle_bg = "C:/Users/ganzk/Desktop/rise_high/python/snake/demo/bg.gif"
 apple = "C:/Users/ganzk/Desktop/rise_high/python/snake/demo/apple.gif"
+high_scores_path = "C:/Users/ganzk/Desktop/rise_high/python/snake/demo/high_scores.txt"
 
 # Initialize helper objects
 game = Game(512, 512, wn_bg=jungle_bg, delay=0.1)
@@ -31,6 +32,15 @@ score = 0
 # List of colors and index to track iteration
 color_list = ["red", "orange", "yellow", "green", "blue", "violet"]
 color_index = 0
+
+high_score = None
+# Load in high score
+with open(high_scores_path) as file:
+    for line in file:
+        high_score = int(line.strip())
+
+# Make sure something loaded
+assert(high_score is not None)
 
 # Functions to set movement direction
 def go_left():
@@ -57,10 +67,21 @@ game.set_control('d', go_right)
 
 # Write a You Lose! message
 def lose():
+    # Check if a new high score was set
     snake.set_direction("stop")
     turtle.color("white")
     turtle.write("You Lose!", align="center", font=("Arial", 16, "normal"))
-    time.sleep(game.delay * 10)
+    time.sleep(1)
+
+    if score > high_score:
+        turtle.clear()
+        turtle.write("New High Score!!", align="center", font=("Arial", 16, "normal"))
+        # Write new score to file
+        with open(high_scores_path, "w+") as file: # 'w+' enables overwriting
+            file.write(str(score))
+        
+        time.sleep(3)
+
 
 
 # Main game loop
@@ -100,7 +121,7 @@ while True:
         body[0].goto(x, y)
 
     snake.move()
-    scoreboard.write_score(score)
+    scoreboard.write_score(score, high_score)
 
     # Check for head collisions with body segments
     collision = False
