@@ -137,3 +137,5 @@ while True:
     
     game.update() # Go to next game tick
     time.sleep(game.delay)
+
+turtle.done()

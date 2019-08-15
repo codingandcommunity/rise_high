@@ -136,3 +136,5 @@ while True:
     
     game.update()
     time.sleep(game.delay)
+
+turtle.done()
