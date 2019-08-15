@@ -9,7 +9,8 @@ import os
 seqnum = random.choice([1, 2, 3, 4, 5])
 print("Using sequence example number {}".format(seqnum))
 lines = []
-with open(os.path.join(os.getcwd(), "sequences", str(seqnum) + '.txt'), 'r') as file:
+folder, _ = os.path.split(__file__)
+with open(os.path.join(folder, "sequences", str(seqnum) + '.txt'), 'r') as file:
     for line in file:
         lines.append(line.strip())
 
