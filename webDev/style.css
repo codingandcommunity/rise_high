@@ -1,0 +1,45 @@
+.bannerImage{
+    height: 100px;
+    width: 100px;
+    align:right ;
+}
+#banner{
+    text-align: center;
+    color:white;
+    background-color: #000080;
+    width: 100%;
+    font-size: 30px;
+}
+
+
+footer{
+	display:block;
+}
+
+a {
+
+	text-decoration: none;
+	
+}
+
+img {
+	
+	height: 300px;
+    width: 200px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+body {
+		color:white;
+
+   background-color: cornflowerblue;
+}
+
+p {
+   color:white;
+   text-align: center;
+}
+
