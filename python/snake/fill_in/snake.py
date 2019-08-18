@@ -109,13 +109,15 @@ while True:
         Step 5: TODO update the positions of all the snake body segments (not the head)
 
         This part is tough! Ask for help if you need it!
+        What should x and y be?
     '''
     # body is a list of the snake's segments except for the head
     body = snake.get_body()
-
-    ''' TODO Fill in Step 5 here '''
-
-    
+    for i in range(len(body) - 1, 0, -1):
+        x = 0
+        y = 0
+        #body[i].goto(x, y)
+        continue
 
     # Update the snake's head position
     snake.move()
