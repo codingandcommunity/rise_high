@@ -1,10 +1,6 @@
 import turtle
 import time
-from apscheduler.schedulers.blocking import BlockingScheduler
 
-scheduler = BlockingScheduler()
-
-@scheduler.scheduled_job('interval', seconds=10)
 def flash_message():
     '''
     Things for you to add:
@@ -29,4 +25,6 @@ def flash_message():
     turtle.Turtle._screen = None
     turtle.TurtleScreen._RUNNING = True
 
-scheduler.start()
+while True:
+    flash_message()
+    time.sleep(8)
