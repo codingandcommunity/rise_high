@@ -19,10 +19,10 @@
 // This must be either pin 2 or 3 for the type of board we are using (Arduino Uno)
 int button_pin = 2;
 
-// TODO: Declare 6 integers, setting pin numbers as their values.
-// The first led pin number should be set to 0 and the last should be set to 6.
-
-// TODO: Create an array to store the led pins.
+/* Step 1:
+ * Declare 6 integers, setting pin numbers as their values.
+ * The first led pin number should be set to 0 and the last should be set to 6.
+ */
 
 // Interger to store the buzzer pin.
 int buzzer_pin = 7;
@@ -36,14 +36,20 @@ const int rs = 8, en = 9, d4 = 10, d5 = 11, d6 = 12, d7 = 13;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 void setup() {
-  // TODO: Set button pin to INPUT
+  /* Step 2:
+   * Set button pin to INPUT
+   */
 
-  // TOD0: Set all LED pins to OUTPUT
-  
-  // TODO: Set buzzer pin to OUTPUT
-  
+  /* Step 3:
+   * Set all LED pins to OUTPUT
+   */
+
   // Set lcd screen to 16 columns and 2 rows.
   lcd.begin(16, 2);
+  
+  /* Step 8:
+   * Set buzzer pin to OUTPUT 
+   */
 
   // Initialize random seed.
   randomSeed(analogRead(0));
@@ -81,25 +87,29 @@ void loop() {
   
   pressed = digitalRead(button_pin);
   
-  // TODO: remove true and replace if with a check to see if the button is pressed.
+  /* Step 4:
+   * remove true and replace it with a conditional to see if the button is pressed. 
+   */
   if (true) {
     
-    // TODO: turn off all of the lights to reset.
+    /* Step 5:
+     * turn off all of the lights to reset. 
+     */
 
-    // TODO: call the DiceNoise function.
+    /* Step 9:
+     * call the DiceNoise function. 
+     */
     
     // Get a random number in the range [1,6]
     int thrownNumber = random(1,7);
     
-    // TODO: write if statements to light up the lights based on what thrownNumber's value is.
-    // For example, if thrownNumber is 3, the first three lights should light up.
+    /* Step 6:
+     * Write if statements to light up the lights based on what thrownNumber's value is.
+     * For example, if thrownNumber is 3, the first three lights should light up.
+     */
 
-    // TODO: PrintRolledMessage to inform the user what number was rolled.
-    
-  }
-
-  // TODO: do something else if the button is not pressed
-  else {
-    // TODO: PrintNoRollMessage to tell the user how to interact with your circuit.
+    /* Step 7:
+     * PrintRolledMessage to inform the user what number was rolled.
+     */
   }
 }
