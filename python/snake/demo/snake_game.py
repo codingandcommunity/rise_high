@@ -10,7 +10,7 @@ class Game(object):
         Helper class controlling the game's high-level settings,
         screen, and frame-by-frame updating.
     '''
-    def __init__(self, wn_len, wn_height, wn_bg="", wn_color="grey", delay=0.1):
+    def __init__(self, wn_len, wn_height, wn_bg=None, wn_color="grey", delay=0.1):
         ''' Initialize a game instance '''
         # Set constants
         self.wn_len = wn_len
@@ -25,7 +25,7 @@ class Game(object):
         if wn_bg:
             self.screen.bgpic(wn_bg)
         else:
-            self.screen.color(wn_color)
+            self.screen.bgcolor(wn_color)
         self.screen.tracer(0)
         self.screen.listen()
 
@@ -174,9 +174,9 @@ class Scoreboard(object):
         self.pen.penup()
         self.pen.goto(0, self.game.wn_height / 2 - 40)
     
-    def write_score(self, scr, highscr):
+    def write_score(self, scr):
         ''' Write score on screen. Called every game tick. '''
         self.pen.clear() # Remove previous score
-        self.pen.write("Score: {}  High Score: {}".format(scr, highscr), 
+        self.pen.write("Score: {}".format(scr), 
                        align="center", 
                        font=(self.font, self.fntsize, self.fntstyle))
