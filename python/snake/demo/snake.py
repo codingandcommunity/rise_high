@@ -15,32 +15,18 @@ import time # For delay
 import random  # For placing fruits
 from snake_game import Game, Snake, Food, Scoreboard
 
-# Resource locations on disk
-jungle_bg = "C:/Users/ganzk/Desktop/rise_high/python/snake/demo/bg.gif"
-apple = "C:/Users/ganzk/Desktop/rise_high/python/snake/demo/apple.gif"
-high_scores_path = "C:/Users/ganzk/Desktop/rise_high/python/snake/demo/high_scores.txt"
-
 # Initialize helper objects
-game = Game(512, 512, wn_bg=jungle_bg, delay=0.1)
-snake = Snake(game, color="white")
-food = Food(game, color="red")
+game = Game(512, 512, wn_color="black", wn_bg=None, delay=0.05)
+snake = Snake(game, shape="square", color="white")
+food = Food(game, shape="circle", color="red")
 scoreboard = Scoreboard(game)
 
 # Counter for tracking the player's score
 score = 0
 
 # List of colors and index to track iteration
-color_list = ["red", "orange", "yellow", "green", "blue", "violet"]
+color_list = ["green"]
 color_index = 0
-
-high_score = None
-# Load in high score
-with open(high_scores_path) as file:
-    for line in file:
-        high_score = int(line.strip())
-
-# Make sure something loaded
-assert(high_score is not None)
 
 # Functions to set movement direction
 def go_left():
@@ -73,17 +59,6 @@ def lose():
     turtle.write("You Lose!", align="center", font=("Arial", 16, "normal"))
     time.sleep(1)
 
-    if score > high_score:
-        turtle.clear()
-        turtle.write("New High Score!!", align="center", font=("Arial", 16, "normal"))
-        # Write new score to file
-        with open(high_scores_path, "w+") as file: # 'w+' enables overwriting
-            file.write(str(score))
-        
-        time.sleep(3)
-
-
-
 # Main game loop
 while True:
     # Check if player is out of boundss
@@ -104,8 +79,8 @@ while True:
         score += 10
 
         # If score hits a multiple of 50, increase the speed
-        if score % 50 == 0:
-            game.delay = max(game.delay - 0.015, 0)
+        #if score % 50 == 0:
+        #    game.delay = max(game.delay - 0.015, 0)
 
     # Move all but first segments in reverse order
     body = snake.get_body()
