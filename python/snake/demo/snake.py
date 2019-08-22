@@ -121,7 +121,7 @@ while True:
         body[0].goto(x, y)
 
     snake.move()
-    scoreboard.write_score(score, high_score)
+    scoreboard.write_score(score)
 
     # Check for head collisions with body segments
     collision = False
